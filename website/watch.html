@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en" class="html">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css" />
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+        <title>Tic Tac Toe</title>
+    </head>
+    <body class="body" onload="listGames(); setInterval(listGames,2000);">
+        <div class="bg">
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
+                            <circle id="O" class="cls-1" cx="50" cy="30" r="20"/>
+                            <path id="X" class="cls-2" d="M29.646,50.354l0.707-.707,40,40-0.707.707Zm40-.707,0.707,0.707-40,40-0.707-.707ZM22,73"/>
+                            <path class="cls-3" d="M61.806,28A2.721,2.721,0,0,1,63,30.041C63,32.78,56.956,35,49.5,35S36,32.78,36,30.041a2.679,2.679,0,0,1,1.139-2"/>
+                            <path class="cls-3" d="M53,42.806A2.721,2.721,0,0,1,50.959,44C48.22,44,46,37.956,46,30.5S48.22,17,50.959,17a2.679,2.679,0,0,1,2,1.139"/>
+                            <path class="cls-4" d="M52.194,19.2l2.524,0.511-0.46-2.526"/>
+                            <path class="cls-4" d="M62.8,26.8l-2.544-.511,0.463,2.526"/>
+                        </svg>
+                    </a>
+                </div>
+                <button class="button_no_border navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="navbar-nav fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto dropdown-menu-right text-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Play</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="watch.html">Spectate<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Full page game -->
+            <header class="main-content">
+                <!-- Title and start -->
+                <div class="left-content">
+                    <h1 class="header_cust font-weight-bold">Let's watch<br />Tic Tac Toe!</h1>
+                </div>
+                <!-- Game -->
+                <div class="right-content">
+                    <!-- Current games display -->
+                    <div id="connect-block">
+                        <h3 class="connect-title">Current games</p>
+                        <div id="connect-games" class="connect-block">
+                        </div>
+                    </div>
+
+                    <!-- Winning display -->
+                    <div id="win-block" class="hide win-block move-from-top">
+                        <div id="medal" class="win-img-div">
+                            <i class="win-img fas fa-medal"></i>
+                        </div>
+                        <h1 id="draw" class="hide draw-msg">
+                            It's a draw :(
+                        </h1>
+                        <h1 id="win" class="win-msg">
+                            <div class="win-left">
+                                <svg id="x-win" class="hide" width="50px" height="50px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o-win" class="hide" width="50px" height="50px" viewBox="0 0 86 86" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle stroke="#95f9e3" cx="45" cy="70" r="35"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="win-right">
+                                WINS!
+                            </div>
+                        </h1>
+                    </div>
+
+                    <!-- Player turns -->
+                    <div id="player-turns" class="hide turn-block">
+                        <div id="po1" class="turn-p">
+                            <svg transform="scale(0.7)" width="30px" height="30px" viewBox="0 0 66 66" version="1.1">
+                                <g id="Page-1" stroke="none" fill="none">
+                                    <g id="po2" class="turn-p" id="Artboard-23" transform="translate(-16.000000, -21.000000)">
+                                        <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                            <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                            <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div id="px1" class="turn-p">
+                            <svg width="30px" height="30px" viewBox="0 0 86 88" version="1.1">
+                                <g id="Page-1" stroke="none" fill="none">
+                                    <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                        <g id="px2" class="turn-p" id="Oval-5">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="svg-img" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Game board -->
+                    <div id="game-board" class="hide board-block">
+                        <div class="row">
+                            <button id="11" class="square" disabled>
+                                <svg id="x11" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o11" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s11" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                            <button id="12" class="square" disabled>
+                                <svg id="x12" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o12" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s12" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                            <button id="13" class="square" disabled>
+                                <svg id="x13" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o13" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s13" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button id="21" class="square" disabled>
+                                <svg id="x21" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o21" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s21" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                            <button id="22" class="square" disabled>
+                                <svg id="x22" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o22" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s22" class="selected fas fa-circle fa-beat"></i>
+                            </button>
+                            <button id="23" class="square" disabled>
+                                <svg id="x23" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o23" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s23" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button id="31" class="square" disabled>
+                                <svg id="x31" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o31" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s31" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                            <button id="32" class="square" disabled>
+                                <svg id="x32" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o32" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s32" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                            <button id="33" class="square" disabled>
+                                <svg id="x33" class="hide" width="66px" height="66px" viewBox="0 0 66 66" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-23" transform="translate(-16.000000, -21.000000)" stroke="#ff4365">
+                                            <g id="Group" class="svg-img" transform="translate(24.000000, 29.000000)">
+                                                <path d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line"></path>
+                                                <path class="undefined1" d="M0.497425847,0.497425847 L49.0583794,49.0583794" id="Line" transform="translate(25.000000, 25.000000) scale(-1, 1) translate(-25.000000, -25.000000) "></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <svg id="o33" class="hide" width="86px" height="88px" viewBox="0 0 86 88" version="1.1">
+                                    <g id="Page-1" stroke="none" fill="none">
+                                        <g id="Artboard-21" transform="translate(0.000000, -26.000000)">
+                                            <use fill="black" filter="url(#filter-2)"></use>
+                                            <circle class="undefined svg-img" stroke="#95f9e3" cx="41" cy="71" r="27"></circle>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <i id="s33" class="hide fas fa-circle fa-beat"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="game-id" class="hide game-id">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.3.0/sockjs.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+            <script src="js/script.js"></script>
+        </div>
+    </body>
+</html>

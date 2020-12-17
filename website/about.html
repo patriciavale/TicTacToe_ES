@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css" />
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+        <title>Tic Tac Toe</title>
+    </head>
+    <body>
+        <div class="bg">
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
+                            <circle id="O" class="cls-1" cx="50" cy="30" r="20"/>
+                            <path id="X" class="cls-2" d="M29.646,50.354l0.707-.707,40,40-0.707.707Zm40-.707,0.707,0.707-40,40-0.707-.707ZM22,73"/>
+                            <path class="cls-3" d="M61.806,28A2.721,2.721,0,0,1,63,30.041C63,32.78,56.956,35,49.5,35S36,32.78,36,30.041a2.679,2.679,0,0,1,1.139-2"/>
+                            <path class="cls-3" d="M53,42.806A2.721,2.721,0,0,1,50.959,44C48.22,44,46,37.956,46,30.5S48.22,17,50.959,17a2.679,2.679,0,0,1,2,1.139"/>
+                            <path class="cls-4" d="M52.194,19.2l2.524,0.511-0.46-2.526"/>
+                            <path class="cls-4" d="M62.8,26.8l-2.544-.511,0.463,2.526"/>
+                        </svg>
+                    </a>
+                </div>
+                <button class="button_no_border navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="navbar-nav fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto dropdown-menu-right text-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Play</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="watch.html">Spectate</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="about.html">About<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Full page game -->
+            <header>
+                <div class="about-row">
+                    <!-- Title -->
+                    <div class="left-content">
+                        <h1 class="about-title">What<br />is it?</h1>
+                    </div>
+                    <!-- Description -->
+                    <div class="right-content">
+                        <p class="about-description">
+                            This website allows you to play Tic Tac Toe with your mobile phone, remotely.<br />With the help of your phone's accelerometer, we can capture your movements and let you freely play the game.<br />In the "Spectate" menu, you may also watch another player's game, that is currently being played.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-row">
+                    <!-- Title -->
+                    <div class="left-content">
+                        <h1 class="about-title">How<br />to play?</h1>
+                    </div>
+                    <!-- Description -->
+                    <div class="right-content">
+                        <p class="about-description">
+                            Just connect with your phone, and a new player will appear in the "Connected players" list. Select two players from this list, and click the button "Start game". A game will start.<br />The turn is indicated at the top of the board (the first player selected is X, and the second one is O), and after a player wins, a window will popup with the winning player. To start a new game, just click the "Start game" button again.<br />To spectate a game, choose a game from the "Current games" list. You will be able to start watching the game right away.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-row">
+                    <!-- Title -->
+                    <div class="left-content">
+                        <h1 class="about-title">Our<br />team</h1>
+                    </div>
+                    <!-- Description -->
+                    <div class="right-content">
+                        <p class="about-description">
+                            This game was made as a project for the Software Engineer course of Universidade de Aveiro, at DETI.<br />View more information <a href="http://code.ua.pt/projects/es-2018-2019-p2g2/wiki">here</a>
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.3.0/sockjs.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+            <script src="js/script.js"></script>
+        </div>
+    </body>
+</html>
