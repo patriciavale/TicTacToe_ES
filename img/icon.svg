@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #000;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 2px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-width: 1px;
+      }
+    </style>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard 1">
+    <circle id="O" class="cls-1" cx="50" cy="30" r="20"/>
+    <path id="X" class="cls-2" d="M29.646,50.354l0.707-.707,40,40-0.707.707Zm40-.707,0.707,0.707-40,40-0.707-.707ZM22,73"/>
+    <path class="cls-3" d="M61.806,28A2.721,2.721,0,0,1,63,30.041C63,32.78,56.956,35,49.5,35S36,32.78,36,30.041a2.679,2.679,0,0,1,1.139-2"/>
+    <path class="cls-3" d="M53,42.806A2.721,2.721,0,0,1,50.959,44C48.22,44,46,37.956,46,30.5S48.22,17,50.959,17a2.679,2.679,0,0,1,2,1.139"/>
+    <path class="cls-4" d="M52.194,19.2l2.524,0.511-0.46-2.526"/>
+    <path class="cls-4" d="M62.8,26.8l-2.544-.511,0.463,2.526"/>
+  </g>
+</svg>
