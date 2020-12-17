@@ -36,3 +36,6 @@ The architecture has a central point a Kafka broker. The smartphone actions trig
 <img src="https://github.com/patriciavale/TicTacToe_ES/blob/main/img/arch.png" width="600">
 
 Each module performs a specific and isolated function. For real-time, event driven information the Kafka is used. However for get static information such a game information, some modules might have a REST API, which in turn is used by Web Server.
+
+## Credits
+This project was made by Patrícia Vale and Davide Cruz, for the Software Engineering (ES) course in University of Aveiro, in 2019.
